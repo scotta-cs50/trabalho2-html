@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Página educativa sobre a arquitetura de Von Neumann, o modelo usado na maioria dos computadores atuais.">
+  <title>Arquitetura de Von Neumann</title>
+  <link rel="icon" href="../img/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap">
+  <link rel="stylesheet" href="../css/modern-normalize.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="../img/logo.svg" alt="Logotipo do site, um chip de computador" width="40" height="40">
+      <h1>Arquitetura de Computadores</h1>
+    </div>
+    <nav>
+      <input type="checkbox" id="aberto">
+      <label for="aberto">Menu</label>
+      <ul>
+        <li><a href="#conceito">Conceito</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#exercicios">Exercícios</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="conceito">
+      <h2>Arquitetura de Von Neumann</h2>
+      <p>Todo computador precisa saber onde o programa está guardado e quem vai executá-lo. A arquitetura de Von Neumann responde essas duas perguntas e é a base da maioria dos computadores que usamos hoje, de notebooks a celulares.</p>
+
+      <h3>Como surgiu</h3>
+      <p>Em 1945, o matemático John von Neumann escreveu um relatório sobre o computador EDVAC, chamado <i>First Draft of a Report on the EDVAC</i>. Nele, o programa fica guardado na memória, junto com os dados. Esse é o conceito de programa armazenado. A ideia surgiu de um trabalho em equipe no projeto do EDVAC, mas o relatório ficou conhecido só pelo nome dele.</p>
+      <p>Antes disso, máquinas como o ENIAC eram programadas trocando cabos e chaves à mão, e mudar de programa dava muito trabalho. Com o programa na memória, basta carregar outro conjunto de instruções.</p>
+
+      <h3>Componentes</h3>
+      <p>O modelo tem quatro partes ligadas entre si:</p>
+      <ul>
+        <li><b>CPU:</b> executa as instruções. Dentro dela ficam a unidade de controle (UC), a unidade lógica e aritmética (ULA) e os registradores.</li>
+        <li><b>Memória principal:</b> guarda os programas e os dados que estão em uso. Cada posição tem um endereço.</li>
+        <li><b>Entrada e saída:</b> teclado, mouse, tela, disco, rede e tudo que liga o computador ao mundo de fora.</li>
+        <li><b>Barramentos:</b> caminhos por onde as informações viajam. Existem o de endereços, o de dados e o de controle.</li>
+      </ul>
+
+      <figure>
+        <img src="../img/figura-von-neumann.svg" alt="CPU no centro, memória principal à esquerda, entrada e saída à direita e os barramentos ligando tudo por baixo" width="640" height="330">
+        <figcaption>Figura 1 – Esquema da arquitetura de Von Neumann (desenho do autor)</figcaption>
+      </figure>
+
+      <p>A unidade de controle coordena tudo: busca as instruções e manda os outros componentes agirem. A ULA faz as contas, como somas e subtrações, e as comparações lógicas. Já os registradores são pequenas memórias dentro da CPU, muito rápidas, que guardam valores temporários.</p>
+
+      <h3>O ciclo da instrução</h3>
+      <p>A CPU repete os mesmos passos para cada instrução:</p>
+      <ol>
+        <li><b>Busca:</b> o contador de programa (PC) guarda o endereço da próxima instrução. A CPU lê essa instrução na memória e coloca no registrador de instrução (IR). Depois o PC passa a apontar para a instrução seguinte.</li>
+        <li><b>Decodificação:</b> a unidade de controle descobre o que a instrução está pedindo.</li>
+        <li><b>Execução:</b> a operação é feita, por exemplo uma soma na ULA ou uma leitura na memória.</li>
+      </ol>
+
+      <figure>
+        <img src="../img/figura-ciclo.svg" alt="Três etapas em sequência, busca, decodificação e execução, com uma seta voltando da execução para a busca" width="640" height="290">
+        <figcaption>Figura 2 – Ciclo de busca, decodificação e execução (desenho do autor)</figcaption>
+      </figure>
+
+      <p>Esse ciclo acontece no ritmo do clock do processador, que hoje chega a bilhões de pulsos por segundo. Quando o programa tem um desvio, como um <i>if</i> ou um laço, o PC recebe um novo endereço em vez de apenas avançar.</p>
+
+      <h3>O gargalo de Von Neumann</h3>
+      <p>Como instruções e dados usam a mesma memória e o mesmo caminho até a CPU, os dois disputam o acesso, e a CPU costuma ser mais rápida que a memória. Esse problema é chamado de gargalo de Von Neumann, nome dado pelo cientista John Backus em 1977. Uma das soluções é a memória cache, pequena e rápida, colocada entre a CPU e a memória principal.</p>
+
+      <h3>Von Neumann e Harvard</h3>
+      <p>Na arquitetura Harvard, instruções e dados ficam em memórias separadas, cada uma com o seu caminho. Assim dá para buscar uma instrução e ler um dado ao mesmo tempo. Alguns microcontroladores usam esse modelo. Os processadores atuais misturam as duas ideias: a memória principal é única, mas o cache de nível 1 costuma ser dividido em um para instruções e outro para dados.</p>
+    </section>
+
+    <section id="galeria">
+      <h2>Galeria de componentes</h2>
+      <p>Desenhos dos principais componentes de um computador.</p>
+
+      <div class="galeria">
+        <figure>
+          <img src="../img/galeria-cpu.svg" alt="Processador com pinos dourados nos quatro lados" width="400" height="300">
+          <figcaption>Processador (CPU)</figcaption>
+        </figure>
+        <figure>
+          <img src="../img/galeria-ram.svg" alt="Pente de memória RAM com quatro chips pretos e contatos dourados" width="400" height="300">
+          <figcaption>Memória RAM</figcaption>
+        </figure>
+        <figure>
+          <img src="../img/galeria-barramento.svg" alt="Três linhas paralelas representando os barramentos de endereços, dados e controle" width="400" height="300">
+          <figcaption>Barramentos</figcaption>
+        </figure>
+        <figure>
+          <img src="../img/galeria-es.svg" alt="Monitor, teclado e mouse" width="400" height="300">
+          <figcaption>Entrada e saída</figcaption>
+        </figure>
+      </div>
+
+      <h3>Referências</h3>
+      <ul>
+        <li>BACKUS, J. Can programming be liberated from the von Neumann style? A functional style and its algebra of programs. <i>Communications of the ACM</i>, v. 21, n. 8, p. 613-641, 1978.</li>
+        <li>STALLINGS, W. <i>Arquitetura e organização de computadores</i>. 10. ed. São Paulo: Pearson, 2017.</li>
+        <li>TANENBAUM, A. S.; AUSTIN, T. <i>Organização estruturada de computadores</i>. 6. ed. São Paulo: Pearson, 2013.</li>
+        <li>VON NEUMANN, J. <i>First draft of a report on the EDVAC</i>. Philadelphia: Moore School of Electrical Engineering, University of Pennsylvania, 1945.</li>
+      </ul>
+      <p>Os textos foram escritos pelo autor com base nas referências acima. Todas as figuras e os desenhos da galeria foram feitos pelo autor.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Desenvolvido por Lucas Scotta de Almeida</p>
+    <p>Trabalho 2 – CSS – 2026</p>
+  </footer>
+</body>
+</html>

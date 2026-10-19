@@ -1,0 +1,150 @@
+:root {
+  --azul: #14213d;
+  --amarelo: #fca311;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.6;
+  color: #222222;
+  background-color: #f4f6fa;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  color: white;
+  background-color: var(--azul);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: clamp(1rem, 4.5vw, 1.5rem);
+}
+
+nav input {
+  position: absolute;
+  opacity: 0;
+}
+
+nav label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+nav label::before {
+  content: "";
+  width: 24px;
+  height: 3px;
+  background-color: white;
+  box-shadow: 0 -7px white, 0 7px white;
+}
+
+nav input:focus-visible + label {
+  outline: 3px solid var(--amarelo);
+}
+
+nav ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: var(--azul);
+}
+
+nav input:checked ~ ul {
+  display: block;
+}
+
+nav a {
+  display: block;
+  padding: 16px;
+  color: white;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: var(--azul);
+  background-color: var(--amarelo);
+}
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+section {
+  margin-bottom: 24px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  scroll-margin-top: 80px;
+}
+
+h2 {
+  margin-top: 0;
+  padding-bottom: 8px;
+  color: var(--azul);
+  border-bottom: 3px solid var(--amarelo);
+}
+
+h3 {
+  margin-top: 28px;
+  color: #1f3f7a;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+figure {
+  margin: 24px 0;
+  text-align: center;
+}
+
+figcaption {
+  font-size: 0.9rem;
+  color: #444444;
+}
+
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.galeria figure {
+  flex: 1 1 320px;
+  margin: 0;
+}
+
+footer {
+  padding: 24px 16px;
+  text-align: center;
+  color: white;
+  background-color: var(--azul);
+}
+
+footer p {
+  margin: 4px 0;
+}
